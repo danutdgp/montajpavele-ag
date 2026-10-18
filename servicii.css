@@ -1,0 +1,1028 @@
+/* Page-only. Nu duplicăm style.css. */
+
+.page-servicii .skip{
+  position:absolute;
+  left:-999px;
+  top:auto;
+  width:1px;
+  height:1px;
+  overflow:hidden;
+}
+.page-servicii .skip:focus{
+  left: 18px;
+  top: 10px;
+  width:auto;
+  height:auto;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: rgba(2,132,199,.12);
+  border: 1px solid rgba(14,21,37,.12);
+  z-index: 999;
+}
+
+/* =========================
+   HERO
+   ========================= */
+
+.page-servicii .svcHero{
+  position: relative;
+  overflow: hidden;
+  background: #0B1220;
+  color: rgba(255,255,255,.96);
+  padding: clamp(32px, 5vw, 60px) 0 52px;
+  border-bottom: 1px solid rgba(255,255,255,.10);
+}
+
+.page-servicii .svcHeroBg{
+  position:absolute;
+  inset:-12%;
+  background-image: url("poze/hero-2-2400.avif");
+  background-size: cover;
+  background-position: center 35%;
+  transform: scale(1.06);
+  filter: saturate(1.03) contrast(1.03);
+  z-index: 0;
+}
+
+.page-servicii .svcHeroOverlay{
+  position:absolute;
+  inset:0;
+  z-index:1;
+  background:
+    radial-gradient(900px 360px at 18% 18%, rgba(2,132,199,.28), transparent 62%),
+    linear-gradient(115deg, rgba(12,18,32,.92) 0%, rgba(12,18,32,.72) 58%, rgba(12,18,32,.35) 100%);
+}
+
+/* linii subtile, premium */
+.page-servicii .svcHeroOverlay::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:
+    repeating-linear-gradient(135deg, rgba(255,255,255,.06) 0 1px, transparent 1px 14px),
+    linear-gradient(to right, rgba(255,255,255,.08), transparent 40%, rgba(255,255,255,.08));
+  opacity: .26;
+  mask-image: radial-gradient(65% 70% at 30% 35%, black, transparent 70%);
+  pointer-events:none;
+}
+
+.page-servicii .svcHeroGrid{
+  position: relative;
+  z-index: 2;
+  display:grid;
+  grid-template-columns: 1.15fr .85fr;
+  gap: 18px;
+  align-items: start;
+}
+
+.page-servicii .svcKicker{
+  font-weight: 900;
+  letter-spacing: .18em;
+  font-size: .78rem;
+  color: rgba(255,255,255,.74);
+}
+
+.page-servicii .svcKicker.dark{
+  color: rgba(14,21,37,.70);
+}
+
+.page-servicii .svcH1{
+  margin: 10px 0 10px;
+  font-size: clamp(2rem, 2.6vw, 3.05rem);
+  line-height: 1.08;
+  letter-spacing: -0.6px;
+}
+
+.page-servicii .svcLead{
+  margin: 0 0 14px;
+  font-size: 1.06rem;
+  color: rgba(255,255,255,.90);
+  max-width: 70ch;
+}
+
+.page-servicii .svcHeroActions{
+  display:flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items:center;
+  margin-top: 10px;
+}
+
+/* mică bandă de “jump” – fără box mare */
+.page-servicii .svcJump{
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255,255,255,.14);
+  display:flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items:center;
+  color: rgba(255,255,255,.86);
+}
+
+.page-servicii .svcJumpLabel{
+  font-weight: 900;
+  color: rgba(255,255,255,.80);
+}
+
+.page-servicii .svcJump a{
+  padding: 8px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.16);
+  background: rgba(255,255,255,.08);
+  font-weight: 900;
+  color: rgba(255,255,255,.92);
+  transition: transform .15s ease, background .15s ease, border-color .15s ease;
+}
+.page-servicii .svcJump a:hover{
+  transform: translateY(-1px);
+  background: rgba(2,132,199,.16);
+  border-color: rgba(255,255,255,.20);
+}
+
+/* Repere: compact, elegant */
+.page-servicii .svcRepere{
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,.18);
+  background: rgba(255,255,255,.08);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 30px 90px rgba(0,0,0,.34);
+  padding: 14px;
+  overflow:hidden;
+  position: relative;
+}
+
+/* linii pe spate */
+.page-servicii .svcRepere::before{
+  content:"";
+  position:absolute;
+  inset:-1px;
+  background:
+    radial-gradient(520px 220px at 20% 10%, rgba(2,132,199,.22), transparent 62%),
+    repeating-linear-gradient(135deg, rgba(255,255,255,.08) 0 1px, transparent 1px 16px);
+  opacity: .30;
+  pointer-events:none;
+}
+
+.page-servicii .svcRepere > *{ position: relative; z-index: 1; }
+
+.page-servicii .svcRepTitle{
+  font-weight: 950;
+  margin-bottom: 10px;
+  color: rgba(255,255,255,.92);
+}
+
+.page-servicii .svcRepRow{
+  display:flex;
+  gap: 10px;
+  align-items:flex-start;
+  padding: 12px 10px;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.06);
+  margin: 10px 0;
+}
+
+.page-servicii .svcDot{
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  margin-top: 6px;
+  background: rgba(2,132,199,.98);
+  box-shadow: 0 0 0 6px rgba(2,132,199,.18);
+  flex: 0 0 auto;
+}
+
+.page-servicii .svcRepMain{
+  font-weight: 950;
+  color: rgba(255,255,255,.92);
+}
+.page-servicii .svcRepSub{
+  margin-top: 2px;
+  font-weight: 820;
+  color: rgba(255,255,255,.78);
+  font-size: .96rem;
+}
+
+.page-servicii .svcRepCta{
+  display:flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+/* Edge de jos (simetrie/finisaj) */
+.page-servicii .svcHeroEdge{
+  position:absolute;
+  left:-20%;
+  right:-20%;
+  bottom:-70px;
+  height: 140px;
+  background: linear-gradient(180deg, rgba(247,249,252,0), rgba(247,249,252,1));
+  transform: rotate(-2.1deg);
+  z-index: 2;
+}
+
+/* =========================
+   MAIN / TYPO
+   ========================= */
+
+.page-servicii .svcMain{ padding: 0; }
+
+.page-servicii .svcSection{ padding: 56px 0; }
+
+.page-servicii .svcSoft{
+  background: linear-gradient(180deg, rgba(255,255,255,.0), rgba(255,255,255,.72));
+  border-top: 1px solid rgba(14,21,37,.06);
+  border-bottom: 1px solid rgba(14,21,37,.06);
+}
+
+.page-servicii .svcH2{
+  margin: 0 0 10px;
+  font-size: clamp(1.6rem, 2.2vw, 2.2rem);
+  letter-spacing: -0.35px;
+}
+
+.page-servicii .svcH3{
+  margin: 0;
+  font-size: 1.12rem;
+  letter-spacing: -0.2px;
+}
+
+.page-servicii .svcP{
+  margin: 0 0 12px;
+  color: var(--muted);
+  max-width: 78ch;
+  line-height: 1.68;
+}
+.page-servicii .svcP.small{
+  font-size: .98rem;
+  line-height: 1.65;
+}
+
+/* Introducere: simetric */
+.page-servicii .svcIntroGrid{
+  display:grid;
+  grid-template-columns: 1.15fr .85fr;
+  gap: 18px;
+  align-items:start;
+}
+
+.page-servicii .svcMiniNote{
+  border-radius: 20px;
+  border: 1px solid rgba(14,21,37,.10);
+  background: rgba(255,255,255,.92);
+  box-shadow: var(--shadow2);
+  padding: 16px;
+  position: relative;
+  overflow:hidden;
+}
+
+/* linii pe spate */
+.page-servicii .svcMiniNote::before{
+  content:"";
+  position:absolute;
+  inset:-1px;
+  background:
+    radial-gradient(520px 200px at 18% 10%, rgba(2,132,199,.12), transparent 60%),
+    repeating-linear-gradient(135deg, rgba(2,132,199,.08) 0 1px, transparent 1px 16px);
+  opacity: .28;
+  pointer-events:none;
+}
+.page-servicii .svcMiniNote > *{ position: relative; z-index: 1; }
+
+.page-servicii .svcMiniTitle{
+  font-weight: 950;
+  margin-bottom: 10px;
+}
+
+.page-servicii .svcMiniLine{
+  padding: 12px 12px;
+  border-radius: 16px;
+  border: 1px solid rgba(14,21,37,.10);
+  background: rgba(255,255,255,.78);
+  font-weight: 900;
+  color: rgba(14,21,37,.86);
+  margin-bottom: 10px;
+}
+.page-servicii .svcMiniLine:last-child{ margin-bottom: 0; }
+
+/* =========================
+   SPLIT SERVICES
+   ========================= */
+
+.page-servicii .svcSplitSection{ padding: 12px 0 12px; }
+
+.page-servicii .svcSplit{
+  display:grid;
+  grid-template-columns: 1.05fr .95fr;
+  gap: 16px;
+  align-items:start;
+  padding: 22px 0;
+  border-top: 1px solid rgba(14,21,37,.10);
+}
+.page-servicii .svcSplit:first-child{ border-top: none; }
+
+.page-servicii .svcSplitText{
+  padding: 4px 0;
+}
+
+.page-servicii .svcTwoCols{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.page-servicii .svcBlock{
+  border-radius: 18px;
+  border: 1px solid rgba(14,21,37,.10);
+  background: rgba(255,255,255,.92);
+  box-shadow: var(--shadow2);
+  padding: 14px;
+  position: relative;
+  overflow:hidden;
+}
+
+/* pattern spate */
+.page-servicii .svcBlock::before{
+  content:"";
+  position:absolute;
+  inset:-1px;
+  background:
+    radial-gradient(520px 180px at 18% 10%, rgba(2,132,199,.10), transparent 60%),
+    repeating-linear-gradient(135deg, rgba(14,21,37,.06) 0 1px, transparent 1px 16px);
+  opacity: .26;
+  pointer-events:none;
+}
+.page-servicii .svcBlock > *{ position: relative; z-index: 1; }
+
+.page-servicii .svcBlockTitle{
+  font-weight: 950;
+  margin-bottom: 10px;
+  color: rgba(14,21,37,.90);
+}
+
+.page-servicii .svcList{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display:flex;
+  flex-direction:column;
+  gap: 10px;
+}
+.page-servicii .svcList li{
+  position: relative;
+  padding-left: 22px;
+  color: rgba(14,21,37,.84);
+  font-weight: 780;
+}
+.page-servicii .svcList li::before{
+  content:"";
+  position:absolute;
+  left: 0;
+  top: 9px;
+  width: 12px;
+  height: 12px;
+  border-radius: 6px;
+  background: rgba(2,132,199,.14);
+  border: 1px solid rgba(14,21,37,.12);
+}
+.page-servicii .svcList li::after{
+  content:"";
+  position:absolute;
+  left: 3px;
+  top: 13px;
+  width: 6px;
+  height: 3px;
+  border-left: 2px solid rgba(2,132,199,.98);
+  border-bottom: 2px solid rgba(2,132,199,.98);
+  transform: rotate(-45deg);
+}
+
+.page-servicii .svcListWarn li::before{
+  background: rgba(245,158,11,.14);
+}
+.page-servicii .svcListWarn li::after{
+  border-left-color: rgba(245,158,11,.98);
+  border-bottom-color: rgba(245,158,11,.98);
+}
+
+.page-servicii .svcActions{
+  margin-top: 14px;
+  display:flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* Media: ramă premium + linii pe spate */
+.page-servicii .svcMedia{
+  margin: 0;
+  border-radius: 22px;
+  overflow: hidden;
+  border: 1px solid rgba(14,21,37,.10);
+  box-shadow: var(--shadow3);
+  background: #0B1220;
+  position: relative;
+}
+
+.page-servicii .svcMedia::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(520px 220px at 18% 12%, rgba(2,132,199,.16), transparent 62%),
+    repeating-linear-gradient(135deg, rgba(255,255,255,.10) 0 1px, transparent 1px 18px);
+  opacity: .22;
+  pointer-events:none;
+  z-index: 1;
+}
+
+.page-servicii .svcMedia img{
+  width: 100%;
+  height: auto;
+  display:block;
+  transform: scale(1.02);
+  filter: saturate(1.04) contrast(1.02);
+}
+
+.page-servicii .svcMedia figcaption{
+  position:absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 12px;
+  z-index: 2;
+  color: rgba(255,255,255,.92);
+  font-weight: 900;
+  text-shadow: 0 2px 16px rgba(0,0,0,.55);
+  background: rgba(15,23,42,.44);
+  border: 1px solid rgba(255,255,255,.16);
+  padding: 10px 12px;
+  border-radius: 16px;
+  backdrop-filter: blur(8px);
+}
+
+/* Split B: ordonare simetrică, fără “random” */
+.page-servicii .svcSplitB{
+  grid-template-columns: .95fr 1.05fr;
+}
+
+/* Steps garduri */
+.page-servicii .svcSteps{
+  margin-top: 12px;
+  display:flex;
+  flex-direction:column;
+  gap: 10px;
+}
+.page-servicii .svcStep{
+  display:flex;
+  gap: 10px;
+  align-items:center;
+  padding: 12px 12px;
+  border-radius: 16px;
+  border: 1px solid rgba(14,21,37,.10);
+  background: rgba(255,255,255,.92);
+  box-shadow: var(--shadow2);
+  font-weight: 900;
+  color: rgba(14,21,37,.86);
+}
+.page-servicii .svcStepNo{
+  width: 30px;
+  height: 30px;
+  border-radius: 12px;
+  display:grid;
+  place-items:center;
+  background: rgba(2,132,199,.12);
+  border: 1px solid rgba(14,21,37,.12);
+  color: rgba(2,132,199,.98);
+  font-weight: 950;
+}
+
+/* =========================
+   CARDURI “COMPLETĂRI”
+   ========================= */
+
+.page-servicii .svcHead{ margin-bottom: 14px; }
+
+.page-servicii .svcCards{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 12px;
+}
+
+.page-servicii .svcCard{
+  border-radius: 20px;
+  border: 1px solid rgba(14,21,37,.10);
+  background: rgba(255,255,255,.92);
+  box-shadow: var(--shadow);
+  padding: 16px;
+  position: relative;
+  overflow:hidden;
+  min-height: 260px;
+  display:flex;
+  flex-direction:column;
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+
+.page-servicii .svcCard::before{
+  content:"";
+  position:absolute;
+  inset:-1px;
+  background:
+    radial-gradient(520px 200px at 18% 10%, rgba(2,132,199,.12), transparent 60%),
+    repeating-linear-gradient(135deg, rgba(14,21,37,.06) 0 1px, transparent 1px 16px);
+  opacity: .28;
+  pointer-events:none;
+}
+
+.page-servicii .svcCard::after{
+  content:"";
+  position:absolute;
+  left: 0;
+  top: 18px;
+  bottom: 18px;
+  width: 3px;
+  border-radius: 999px;
+  background: rgba(2,132,199,.55);
+  opacity: .9;
+  pointer-events:none;
+}
+
+.page-servicii .svcCard > *{ position: relative; z-index: 1; }
+
+.page-servicii .svcCard:hover{
+  transform: translateY(-3px);
+  box-shadow: var(--shadow3);
+  border-color: rgba(14,21,37,.14);
+}
+
+.page-servicii .svcCardTop{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.page-servicii .svcTag{
+  padding: 7px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(14,21,37,.10);
+  background: rgba(255,255,255,.74);
+  color: rgba(14,21,37,.76);
+  font-weight: 900;
+  font-size: .92rem;
+}
+
+.page-servicii .svcMiniList{
+  margin: 10px 0 0;
+  padding-left: 18px;
+  color: rgba(14,21,37,.86);
+  font-weight: 750;
+}
+.page-servicii .svcMiniList li{ margin: 6px 0; }
+
+.page-servicii .svcInlineCta{
+  margin-top: 18px;
+  display:flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* =========================
+   FAQ
+   ========================= */
+
+.page-servicii .svcFaq{
+  margin-top: 14px;
+  border-top: 1px solid rgba(14,21,37,.10);
+}
+
+.page-servicii .svcQ{
+  border-bottom: 1px solid rgba(14,21,37,.10);
+  padding: 12px 0;
+}
+
+.page-servicii .svcQ summary{
+  cursor: pointer;
+  font-weight: 950;
+  color: rgba(14,21,37,.90);
+  list-style: none;
+}
+.page-servicii .svcQ summary::-webkit-details-marker{ display:none; }
+
+.page-servicii .svcA{
+  margin-top: 10px;
+  color: rgba(14,21,37,.82);
+  line-height: 1.65;
+  max-width: 78ch;
+}
+
+/* =========================
+   FINAL CTA
+   ========================= */
+
+.page-servicii .svcFinal{
+  padding: 56px 0 62px;
+  background: linear-gradient(180deg, rgba(255,255,255,.0), rgba(255,255,255,.72));
+  border-top: 1px solid rgba(14,21,37,.06);
+}
+
+.page-servicii .svcFinalGrid{
+  display:grid;
+  grid-template-columns: 1.15fr .85fr;
+  gap: 18px;
+  align-items:start;
+}
+
+.page-servicii .svcOfferBox{
+  border-radius: 22px;
+  border: 1px solid rgba(14,21,37,.10);
+  background: rgba(255,255,255,.92);
+  box-shadow: var(--shadow);
+  padding: 16px;
+  position: relative;
+  overflow:hidden;
+}
+
+.page-servicii .svcOfferBox::before{
+  content:"";
+  position:absolute;
+  inset:-1px;
+  background:
+    radial-gradient(520px 200px at 18% 10%, rgba(2,132,199,.12), transparent 60%),
+    repeating-linear-gradient(135deg, rgba(14,21,37,.06) 0 1px, transparent 1px 16px);
+  opacity: .26;
+  pointer-events:none;
+}
+.page-servicii .svcOfferBox > *{ position: relative; z-index: 1; }
+
+.page-servicii .svcOfferTitle{
+  font-weight: 950;
+  margin-bottom: 10px;
+}
+
+.page-servicii .svcOfferLine{
+  padding: 12px 12px;
+  border-radius: 16px;
+  border: 1px solid rgba(14,21,37,.10);
+  background: rgba(255,255,255,.76);
+  font-weight: 900;
+  color: rgba(14,21,37,.86);
+  margin-bottom: 10px;
+}
+.page-servicii .svcOfferLine:last-of-type{ margin-bottom: 6px; }
+
+.page-servicii .svcOfferHint{
+  color: rgba(14,21,37,.74);
+  font-size: .95rem;
+}
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (max-width: 980px){
+  .page-servicii .svcHeroGrid{ grid-template-columns: 1fr; }
+  .page-servicii .svcIntroGrid{ grid-template-columns: 1fr; }
+  .page-servicii .svcSplit{ grid-template-columns: 1fr; }
+  .page-servicii .svcSplitB{ grid-template-columns: 1fr; }
+
+  .page-servicii .svcTwoCols{ grid-template-columns: 1fr; }
+
+  .page-servicii .svcCards{ grid-template-columns: 1fr; }
+
+  .page-servicii .svcFinalGrid{ grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .page-servicii .svcCard{ transition:none; }
+  .page-servicii .svcJump a{ transition:none; }
+}
+/* Ridică doar conținutul (text + pași + butoane) la "garduri", fără să miște imaginea */
+.page-servicii #garduri .svcSplitText{
+  margin-top: -15px; /* ajustează: -8px / -14px după gust */
+}
+
+/* pe mobil (coloană), nu ridicăm ca să nu strice flow-ul */
+@media (max-width: 980px){
+  .page-servicii #garduri .svcSplitText{
+    margin-top: 0;
+  }
+}
+/* Intro text: mai premium + mai lizibil */
+.page-servicii .svcIntroText{
+  position: relative;
+  padding: 18px 18px 16px 18px;
+  border-radius: 20px;
+  border: 1px solid rgba(14,21,37,.10);
+  background: rgba(255,255,255,.86);
+  box-shadow: 0 14px 40px rgba(14,21,37,.08);
+  overflow: hidden;
+}
+
+/* marker stânga (simetrie + accent) */
+.page-servicii .svcIntroText::before{
+  content:"";
+  position:absolute;
+  left: 0;
+  top: 18px;
+  bottom: 18px;
+  width: 3px;
+  border-radius: 999px;
+  background: rgba(2,132,199,.55);
+  opacity: .95;
+}
+
+/* pattern subtil pe fundal */
+.page-servicii .svcIntroText::after{
+  content:"";
+  position:absolute;
+  inset:-1px;
+  background:
+    radial-gradient(520px 220px at 18% 12%, rgba(2,132,199,.12), transparent 62%),
+    repeating-linear-gradient(135deg, rgba(14,21,37,.06) 0 1px, transparent 1px 16px);
+  opacity: .26;
+  pointer-events:none;
+}
+
+.page-servicii .svcIntroText > *{
+  position: relative;
+  z-index: 1;
+}
+
+/* Titlu mai “fin” în bloc */
+.page-servicii .svcIntroText .svcH2{
+  margin-bottom: 8px;
+}
+
+/* Text mic mai vizibil (nu spălăcit) */
+.page-servicii .svcIntroText .svcP{
+  color: rgba(14,21,37,.88);
+  font-weight: 650;
+  font-size: 1.02rem;
+  line-height: 1.72;
+}
+
+/* spațiere mai bună între paragrafe */
+.page-servicii .svcIntroText .svcP + .svcP{
+  margin-top: 10px;
+}
+/* FAQ: indicator "apasă" (chevron) */
+.page-servicii .svcQ summary{
+  position: relative;
+  padding-right: 34px; /* spațiu pentru săgeată */
+}
+
+/* chevron desenat din CSS (subtil) */
+.page-servicii .svcQ summary::after{
+  content:"";
+  position:absolute;
+  right: 10px;
+  top: 50%;
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid rgba(14,21,37,.55);
+  border-bottom: 2px solid rgba(14,21,37,.55);
+  transform: translateY(-55%) rotate(45deg);
+  transition: transform .18s ease, border-color .18s ease, opacity .18s ease;
+  opacity: .85;
+}
+
+/* hover: puțin mai vizibil */
+.page-servicii .svcQ summary:hover::after{
+  border-right-color: rgba(2,132,199,.85);
+  border-bottom-color: rgba(2,132,199,.85);
+  opacity: 1;
+}
+
+/* când e deschis: rotim chevron în sus */
+.page-servicii .svcQ[open] summary::after{
+  transform: translateY(-45%) rotate(-135deg);
+  border-right-color: rgba(2,132,199,.85);
+  border-bottom-color: rgba(2,132,199,.85);
+  opacity: 1;
+}
+/* FAQ răspuns: mai vizibil + separare discretă */
+.page-servicii .svcA{
+  color: rgba(14,21,37,.88);   /* mai închis */
+  font-weight: 650;            /* mai gros */
+  font-size: 1.02rem;          /* puțin mai mare */
+  line-height: 1.72;
+
+  margin-top: 10px;
+  padding: 10px 12px;
+  border-radius: 14px;
+
+  background: rgba(2,132,199,.06);
+  border: 1px solid rgba(14,21,37,.10);
+}
+/* =========================
+   Animations (page-wide)
+   ========================= */
+
+/* Reveal: păstrează ce ai în style.css, dar adăugăm delay pe element */
+.page-servicii .reveal{
+  transition-delay: var(--d, 0ms);
+  will-change: transform, opacity;
+}
+
+/* HERO: drift subtil pe imagine (fără să doară performanța) */
+@keyframes heroDrift{
+  0%{ transform: scale(1.06) translate3d(0,0,0); }
+  50%{ transform: scale(1.09) translate3d(-10px, 8px, 0); }
+  100%{ transform: scale(1.06) translate3d(0,0,0); }
+}
+.page-servicii .svcHeroBg{
+  animation: heroDrift 18s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* FAQ răspuns: animăm deschiderea */
+.page-servicii .svcQ .svcA{
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transform: translateY(-4px);
+  padding: 0 12px; /* păstrăm lățimea, dar fără înălțime */
+  border-width: 0;
+  background: transparent;
+  transition: max-height .28s ease, opacity .22s ease, transform .22s ease, padding .22s ease, background .22s ease, border .22s ease;
+}
+
+/* Când e open, revine la stilul vizibil (tu ai deja culorile) */
+.page-servicii .svcQ[open] .svcA{
+  max-height: 260px;          /* suficient pt răspunsuri normale */
+  opacity: 1;
+  transform: translateY(0);
+  padding: 10px 12px;
+  background: rgba(2,132,199,.06);
+  border: 1px solid rgba(14,21,37,.10);
+  border-radius: 14px;
+}
+
+/* Smooth scroll la anchor-uri (Vezi serviciile / sărituri) */
+html{ scroll-behavior: smooth; }
+
+/* Respectă preferințele userului */
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior: auto; }
+  .page-servicii .svcHeroBg{ animation: none; }
+  .page-servicii .reveal{ transition: none; transform: none; opacity: 1; }
+  .page-servicii .svcQ .svcA{ transition: none; }
+}
+/* FAQ: animăm conținutul (răspunsul) */
+.page-servicii .svcQ{
+  border-bottom: 1px solid rgba(14,21,37,.10);
+  padding: 10px 0;
+}
+
+.page-servicii .svcQ summary{
+  position: relative;
+  padding: 10px 34px 10px 0; /* loc pt săgeată */
+  cursor: pointer;
+  font-weight: 950;
+  color: rgba(14,21,37,.90);
+  transition: color .18s ease;
+}
+
+/* Chevron (dacă îl ai deja, îl poți lăsa; ăsta e complet) */
+.page-servicii .svcQ summary::after{
+  content:"";
+  position:absolute;
+  right: 10px;
+  top: 50%;
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid rgba(14,21,37,.55);
+  border-bottom: 2px solid rgba(14,21,37,.55);
+  transform: translateY(-55%) rotate(45deg);
+  transition: transform .18s ease, border-color .18s ease, opacity .18s ease;
+  opacity: .85;
+}
+
+.page-servicii .svcQ summary:hover{
+  color: rgba(14,21,37,.98);
+}
+.page-servicii .svcQ summary:hover::after{
+  border-right-color: rgba(2,132,199,.85);
+  border-bottom-color: rgba(2,132,199,.85);
+  opacity: 1;
+}
+
+.page-servicii .svcQ[open] summary::after{
+  transform: translateY(-45%) rotate(-135deg);
+  border-right-color: rgba(2,132,199,.85);
+  border-bottom-color: rgba(2,132,199,.85);
+  opacity: 1;
+}
+
+/* AICI e animația: închis -> deschis */
+.page-servicii .svcQ .svcA{
+  max-height: 0 !important;
+  opacity: 0 !important;
+  transform: translateY(-4px) !important;
+
+  margin-top: 0 !important;
+  padding: 0 12px !important;
+
+  border: 0 !important;
+  background: transparent !important;
+
+  overflow: hidden !important;
+  transition: max-height .30s ease, opacity .22s ease, transform .22s ease,
+              margin-top .22s ease, padding .22s ease, background .22s ease, border .22s ease;
+}
+
+/* deschis */
+.page-servicii .svcQ[open] .svcA{
+  max-height: 260px !important; /* dacă ai răspunsuri mai lungi: 360px */
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+
+  margin-top: 10px !important;
+  padding: 10px 12px !important;
+
+  background: rgba(2,132,199,.06) !important;
+  border: 1px solid rgba(14,21,37,.10) !important;
+  border-radius: 14px !important;
+
+  color: rgba(14,21,37,.88) !important;
+  font-weight: 650 !important;
+  font-size: 1.02rem !important;
+  line-height: 1.72 !important;
+}
+/* Hover doar pe desktop/laptop */
+@media (hover:hover) and (pointer:fine){
+
+  /* Cardurile de completări */
+  .page-servicii .svcCard{
+    transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+  }
+
+  .page-servicii .svcCard::before{
+    transition: opacity .22s ease, transform .22s ease;
+    transform: translateY(0);
+  }
+
+  .page-servicii .svcCard:hover{
+    transform: translateY(-6px) scale(1.01);
+    box-shadow: 0 26px 80px rgba(14,21,37,.16);
+    border-color: rgba(14,21,37,.16);
+  }
+
+  .page-servicii .svcCard:hover::before{
+    opacity: .42;
+    transform: translateY(-8px);
+  }
+
+  /* accent bar mai “clar” */
+  .page-servicii .svcCard:hover::after{
+    background: rgba(2,132,199,.75);
+  }
+
+  /* blocurile din 2 coloane (ce intră / unde se greșește) */
+  .page-servicii .svcBlock{
+    transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+  }
+  .page-servicii .svcBlock:hover{
+    transform: translateY(-4px);
+    box-shadow: 0 22px 70px rgba(14,21,37,.14);
+    border-color: rgba(14,21,37,.14);
+  }
+
+  /* Media card (imagine): zoom mic + caption mai “sus” */
+  .page-servicii .svcMedia img{
+    transition: transform .35s ease;
+  }
+  .page-servicii .svcMedia figcaption{
+    transition: transform .25s ease, background .25s ease;
+  }
+
+  .page-servicii .svcMedia:hover img{
+    transform: scale(1.06);
+  }
+  .page-servicii .svcMedia:hover figcaption{
+    transform: translateY(-2px);
+    background: rgba(15,23,42,.52);
+  }
+}
+
+/* Focus accesibil (și pentru tastatură) */
+.page-servicii .svcCard:focus-within,
+.page-servicii .svcBlock:focus-within,
+.page-servicii .svcMedia:focus-within{
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(2,132,199,.22), 0 18px 60px rgba(14,21,37,.14);
+  border-color: rgba(2,132,199,.35);
+}
+/* Pe mobil: la #garduri, textul deasupra, imaginea dedesubt */
+@media (max-width: 980px){
+  .page-servicii #garduri .svcSplitText{
+    order: 1;
+  }
+  .page-servicii #garduri .svcMedia{
+    order: 2;
+  }
+}

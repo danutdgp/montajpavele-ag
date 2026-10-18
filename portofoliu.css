@@ -1,0 +1,557 @@
+/* Page-only styling: Portofoliu */
+
+.page-portfolio .skip{
+  position:absolute;
+  left:-999px;
+  top:auto;
+  width:1px;
+  height:1px;
+  overflow:hidden;
+}
+.page-portfolio .skip:focus{
+  left: 18px;
+  top: 10px;
+  width:auto;
+  height:auto;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: rgba(2,132,199,.12);
+  border: 1px solid rgba(14,21,37,.12);
+  z-index: 999;
+}
+
+/* Reveal lite (folosit doar la hero/tools/cta) */
+.page-portfolio .reveal{
+  transition-delay: var(--d, 0ms);
+  will-change: transform, opacity;
+}
+
+.page-portfolio .pfMain{ padding: 0; }
+.page-portfolio .pfSection{ padding: 56px 0 62px; }
+
+/* HERO */
+.page-portfolio .pfHero{
+  position: relative;
+  overflow: hidden;
+  background: #0B1220;
+  color: rgba(255,255,255,.96);
+  padding: clamp(30px, 5vw, 54px) 0 48px;
+  border-bottom: 1px solid rgba(255,255,255,.10);
+}
+
+.page-portfolio .pfHeroBg{
+  position:absolute;
+  inset:-12%;
+  background-image: url("poze/hero-1-2400.avif");
+  background-size: cover;
+  background-position: center 30%;
+  transform: scale(1.06);
+  filter: saturate(1.03) contrast(1.03);
+  z-index: 0;
+  animation: pfDrift 18s ease-in-out infinite;
+  will-change: transform;
+}
+@keyframes pfDrift{
+  0%{ transform: scale(1.06) translate3d(0,0,0); }
+  50%{ transform: scale(1.09) translate3d(-10px, 8px, 0); }
+  100%{ transform: scale(1.06) translate3d(0,0,0); }
+}
+
+.page-portfolio .pfHeroShade{
+  position:absolute;
+  inset:0;
+  z-index:1;
+  background:
+    radial-gradient(900px 360px at 18% 18%, rgba(2,132,199,.28), transparent 62%),
+    linear-gradient(115deg, rgba(12,18,32,.92) 0%, rgba(12,18,32,.72) 58%, rgba(12,18,32,.34) 100%);
+}
+.page-portfolio .pfHeroShade::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:
+    repeating-linear-gradient(135deg, rgba(255,255,255,.06) 0 1px, transparent 1px 14px),
+    linear-gradient(to right, rgba(255,255,255,.08), transparent 40%, rgba(255,255,255,.08));
+  opacity: .22;
+  mask-image: radial-gradient(65% 70% at 30% 35%, black, transparent 70%);
+  pointer-events:none;
+}
+
+.page-portfolio .pfHeroInner{
+  position: relative;
+  z-index: 2;
+  display:grid;
+  grid-template-columns: 1.15fr .85fr;
+  gap: 18px;
+  align-items:end;
+}
+
+.page-portfolio .pfKicker{
+  font-weight: 900;
+  letter-spacing: .18em;
+  font-size: .78rem;
+  color: rgba(255,255,255,.74);
+}
+
+.page-portfolio .pfH1{
+  margin: 10px 0 8px;
+  font-size: clamp(2rem, 2.6vw, 3.05rem);
+  line-height: 1.08;
+  letter-spacing: -0.6px;
+}
+
+.page-portfolio .pfLead{
+  margin: 0;
+  color: rgba(255,255,255,.88);
+  font-size: 1.06rem;
+  font-weight: 560;
+  max-width: 70ch;
+}
+
+.page-portfolio .pfHeroActions{
+  display:flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}
+
+.page-portfolio .pfHeroMini{
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,.18);
+  background: rgba(255,255,255,.08);
+  backdrop-filter: blur(10px);
+  padding: 14px;
+  position: relative;
+  overflow:hidden;
+  box-shadow: 0 30px 90px rgba(0,0,0,.34);
+}
+.page-portfolio .pfHeroMini::before{
+  content:"";
+  position:absolute;
+  inset:-1px;
+  background:
+    radial-gradient(520px 220px at 18% 12%, rgba(2,132,199,.22), transparent 62%),
+    repeating-linear-gradient(135deg, rgba(255,255,255,.08) 0 1px, transparent 1px 16px);
+  opacity: .24;
+  pointer-events:none;
+}
+.page-portfolio .pfHeroMini > *{ position: relative; z-index:1; }
+
+.page-portfolio .pfMiniRow{
+  display:flex;
+  gap: 10px;
+  align-items:center;
+  padding: 10px 0;
+  border-top: 1px solid rgba(255,255,255,.12);
+  color: rgba(255,255,255,.88);
+  font-weight: 820;
+}
+.page-portfolio .pfMiniRow:first-child{ border-top: none; padding-top: 0; }
+
+.page-portfolio .pfDot{
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(2,132,199,.98);
+  box-shadow: 0 0 0 6px rgba(2,132,199,.16);
+}
+
+.page-portfolio .pfHeroEdge{
+  position:absolute;
+  left:-20%;
+  right:-20%;
+  bottom:-70px;
+  height: 140px;
+  background: linear-gradient(180deg, rgba(247,249,252,0), rgba(247,249,252,1));
+  transform: rotate(-2.1deg);
+  z-index: 2;
+}
+
+/* TOOLS (sticky real, dropdown neclipped) */
+.page-portfolio .pfTools{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap: 12px;
+
+  border: 1px solid rgba(14,21,37,.10);
+  background: rgba(255,255,255,.92);
+  border-radius: 20px;
+  padding: 12px;
+  box-shadow: var(--shadow2);
+
+  position: sticky;
+  top: 78px;
+  z-index: 80;
+
+  overflow: visible;
+}
+.page-portfolio .pfTools::before{
+  content:"";
+  position:absolute;
+  inset:-1px;
+  background:
+    radial-gradient(520px 200px at 18% 10%, rgba(2,132,199,.12), transparent 60%),
+    repeating-linear-gradient(135deg, rgba(14,21,37,.06) 0 1px, transparent 1px 16px);
+  opacity: .20;
+  pointer-events:none;
+}
+.page-portfolio .pfTools > *{ position: relative; z-index: 1; }
+
+.page-portfolio .pfToolsTitle{ font-weight: 950; color: rgba(14,21,37,.92); }
+.page-portfolio .pfToolsSub{ margin-top: 4px; color: rgba(14,21,37,.76); font-weight: 650; }
+
+/* Filter */
+.page-portfolio .pfFilter{ position: relative; }
+
+.page-portfolio .pfFilterBtn{
+  display:inline-flex;
+  align-items:center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(14,21,37,.12);
+  background: rgba(255,255,255,.80);
+  font-weight: 950;
+  color: rgba(14,21,37,.88);
+  cursor:pointer;
+  transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease, background .15s ease;
+}
+.page-portfolio .pfFilterBtn:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 14px 34px rgba(14,21,37,.10);
+  border-color: rgba(14,21,37,.18);
+}
+
+.page-portfolio .pfFilterLabel{
+  display:inline-flex;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(14,21,37,.10);
+  background: rgba(2,132,199,.10);
+  color: rgba(14,21,37,.92);
+  font-weight: 950;
+  white-space: nowrap;
+}
+
+.page-portfolio .pfChevron{
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid rgba(14,21,37,.55);
+  border-bottom: 2px solid rgba(14,21,37,.55);
+  transform: rotate(45deg);
+  margin-left: 2px;
+  transition: transform .18s ease, border-color .18s ease;
+  opacity: .9;
+}
+.page-portfolio #pfFilterBtn[aria-expanded="true"] .pfChevron{
+  transform: rotate(-135deg);
+  border-right-color: rgba(2,132,199,.85);
+  border-bottom-color: rgba(2,132,199,.85);
+}
+
+/* Menu */
+.page-portfolio .pfMenu{
+  position:absolute;
+  right: 0;
+  top: calc(100% + 10px);
+  width: 240px;
+
+  border-radius: 18px;
+  border: 1px solid rgba(14,21,37,.12);
+  background: rgba(255,255,255,.96);
+  box-shadow: 0 30px 80px rgba(14,21,37,.20);
+  padding: 10px;
+
+  transform: translateY(-8px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .18s ease, transform .18s ease;
+  z-index: 200;
+
+  overflow:hidden;
+}
+.page-portfolio .pfMenu::before{
+  content:"";
+  position:absolute;
+  inset:-1px;
+  background:
+    radial-gradient(520px 200px at 18% 10%, rgba(2,132,199,.10), transparent 60%),
+    repeating-linear-gradient(135deg, rgba(14,21,37,.06) 0 1px, transparent 1px 16px);
+  opacity: .18;
+  pointer-events:none;
+}
+.page-portfolio .pfMenu.open{
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.page-portfolio .pfMenu button{
+  width: 100%;
+  text-align:left;
+  cursor:pointer;
+  padding: 12px 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(14,21,37,.10);
+  background: rgba(255,255,255,.92);
+  display:flex;
+  align-items:center;
+  gap: 10px;
+  font-weight: 900;
+  color: rgba(14,21,37,.88);
+  margin: 8px 0;
+  transition: transform .15s ease, border-color .15s ease, background .15s ease;
+}
+.page-portfolio .pfMenu button:hover{
+  transform: translateY(-1px);
+  border-color: rgba(2,132,199,.22);
+  background: rgba(2,132,199,.06);
+}
+.page-portfolio .pfMenu button.isOn{
+  border-color: rgba(2,132,199,.28);
+  background: rgba(2,132,199,.10);
+}
+.page-portfolio .pfMark{
+  width: 14px;
+  height: 14px;
+  border-radius: 7px;
+  border: 1px solid rgba(14,21,37,.14);
+  background: rgba(255,255,255,.90);
+  box-shadow: 0 10px 24px rgba(14,21,37,.06);
+  position: relative;
+  flex: 0 0 auto;
+}
+.page-portfolio .pfMenu button.isOn .pfMark{
+  border-color: rgba(2,132,199,.35);
+  background: rgba(2,132,199,.14);
+}
+.page-portfolio .pfMenu button.isOn .pfMark::after{
+  content:"";
+  position:absolute;
+  left: 4px;
+  top: 5px;
+  width: 6px;
+  height: 3px;
+  border-left: 2px solid rgba(2,132,199,.98);
+  border-bottom: 2px solid rgba(2,132,199,.98);
+  transform: rotate(-45deg);
+}
+
+/* Grid (fără reveal) */
+.page-portfolio .pfGrid{
+  margin-top: 14px;
+  display:grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 14px;
+}
+.page-portfolio .pfItem{ grid-column: span 4; }
+
+@media (min-width: 1100px){
+  .page-portfolio .pfItem:nth-child(6n+1),
+  .page-portfolio .pfItem:nth-child(6n+6){
+    grid-column: span 6;
+  }
+}
+
+.page-portfolio .pfItem[hidden]{ display:none !important; }
+.page-portfolio .pfItem.isOff{
+  opacity: 0;
+  transform: translateY(6px) scale(.985);
+  pointer-events:none;
+  transition: opacity .16s ease, transform .16s ease;
+}
+
+.page-portfolio .pfThumb{
+  width:100%;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 22px;
+  overflow:hidden;
+  position: relative;
+  border: 1px solid rgba(14,21,37,.10);
+  box-shadow: var(--shadow);
+  transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+}
+
+.page-portfolio .pfThumb img{
+  width:100%;
+  height:auto;
+  display:block;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  transform: scale(1.02);
+  filter: saturate(1.04) contrast(1.02);
+  transition: transform .35s ease;
+}
+
+.page-portfolio .pfOverlay{
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(520px 220px at 18% 12%, rgba(2,132,199,.18), transparent 62%),
+    linear-gradient(180deg, rgba(0,0,0,.00) 0%, rgba(0,0,0,.18) 55%, rgba(0,0,0,.42) 100%),
+    repeating-linear-gradient(135deg, rgba(255,255,255,.10) 0 1px, transparent 1px 18px);
+  opacity: .55;
+  pointer-events:none;
+  transition: opacity .22s ease;
+}
+
+.page-portfolio .pfTag{
+  position:absolute;
+  left: 12px;
+  bottom: 12px;
+  padding: 9px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.18);
+  background: rgba(15,23,42,.44);
+  color: rgba(255,255,255,.94);
+  font-weight: 950;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  font-size: .72rem;
+  backdrop-filter: blur(10px);
+}
+
+@media (hover:hover) and (pointer:fine){
+  .page-portfolio .pfThumb:hover{
+    transform: translateY(-6px);
+    box-shadow: 0 28px 90px rgba(14,21,37,.16);
+    border-color: rgba(14,21,37,.16);
+  }
+  .page-portfolio .pfThumb:hover img{ transform: scale(1.07); }
+  .page-portfolio .pfThumb:hover .pfOverlay{ opacity: .72; }
+}
+
+/* CTA */
+.page-portfolio .pfCta{
+  margin-top: 18px;
+  border-radius: 22px;
+  border: 1px solid rgba(14,21,37,.10);
+  background: rgba(255,255,255,.92);
+  box-shadow: var(--shadow2);
+  padding: 16px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap: 14px;
+  position: relative;
+  overflow:hidden;
+}
+.page-portfolio .pfCta::before{
+  content:"";
+  position:absolute;
+  inset:-1px;
+  background:
+    radial-gradient(520px 200px at 18% 10%, rgba(2,132,199,.12), transparent 60%),
+    repeating-linear-gradient(90deg, rgba(14,21,37,.06) 0 1px, transparent 1px 18px);
+  opacity: .20;
+  pointer-events:none;
+}
+.page-portfolio .pfCta > *{ position: relative; z-index: 1; }
+.page-portfolio .pfCtaTitle{ font-weight: 950; color: rgba(14,21,37,.92); }
+.page-portfolio .pfCtaSub{ margin-top: 6px; color: rgba(14,21,37,.80); font-weight: 650; }
+.page-portfolio .pfCtaActions{ display:flex; gap: 10px; flex-wrap: wrap; }
+
+/* Lightbox */
+html.lbLock{ overflow: hidden; }
+
+.page-portfolio .lb{
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .18s ease;
+}
+.page-portfolio .lb.open{ opacity: 1; pointer-events: auto; }
+.page-portfolio .lbBackdrop{
+  position:absolute;
+  inset:0;
+  background: rgba(12,18,32,.72);
+  backdrop-filter: blur(6px);
+}
+.page-portfolio .lbPanel{
+  position:absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: min(1100px, calc(100vw - 24px));
+  border-radius: 22px;
+  border: 1px solid rgba(255,255,255,.18);
+  background: rgba(15,23,42,.40);
+  box-shadow: 0 40px 140px rgba(0,0,0,.60);
+  overflow:hidden;
+}
+.page-portfolio .lbFigure{ margin: 0; }
+.page-portfolio .lbFigure img{
+  width: 100%;
+  height: auto;
+  display:block;
+  max-height: min(72vh, 720px);
+  object-fit: contain;
+  background: rgba(0,0,0,.30);
+}
+.page-portfolio .lbCap{
+  padding: 12px 14px;
+  color: rgba(255,255,255,.92);
+  font-weight: 850;
+  border-top: 1px solid rgba(255,255,255,.14);
+  background: rgba(0,0,0,.22);
+}
+.page-portfolio .lbClose{
+  position:absolute;
+  right: 10px;
+  top: 10px;
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,.18);
+  background: rgba(255,255,255,.10);
+  color: rgba(255,255,255,.92);
+  cursor:pointer;
+}
+.page-portfolio .lbNav{
+  position:absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.20);
+  background: rgba(255,255,255,.10);
+  color: rgba(255,255,255,.92);
+  font-size: 26px;
+  line-height: 1;
+  display:grid;
+  place-items:center;
+  cursor:pointer;
+}
+.page-portfolio .lbPrev{ left: 12px; }
+.page-portfolio .lbNext{ right: 12px; }
+
+/* Responsive */
+@media (max-width: 980px){
+  .page-portfolio .pfHeroInner{ grid-template-columns: 1fr; align-items:start; }
+  .page-portfolio .pfTools{ position: static; }
+  .page-portfolio .pfMenu{ width: min(320px, calc(100vw - 24px)); }
+
+  .page-portfolio .pfGrid{ grid-template-columns: repeat(6, 1fr); }
+  .page-portfolio .pfItem{ grid-column: span 6; }
+
+  .page-portfolio .pfCta{ flex-direction: column; align-items:flex-start; }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .page-portfolio .pfHeroBg{ animation:none; }
+  .page-portfolio .reveal{ transition:none; transform:none; opacity:1; }
+  .page-portfolio .pfThumb,
+  .page-portfolio .pfThumb img,
+  .page-portfolio .pfOverlay,
+  .page-portfolio .pfMenu{ transition:none; }
+}
+
+/* SVG alignment */
+.page-portfolio .socialIcon svg, .page-portfolio .iBox svg{ display:block; }
